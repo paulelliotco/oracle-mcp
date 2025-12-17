@@ -36,18 +36,10 @@
     "./http-server": "./dist/http-server.js"
   },
   "scripts": {
-    "build": "npx tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "start:http": "node dist/http-server.js",
     "selftest": "node dist/self-test.js",
-    "dev:stdio": "npx tsx watch src/index.ts",
-    "dev:http": "npx tsx watch src/http-server.ts",
-    "typecheck": "npx tsc -p tsconfig.json --noEmit",
-    "selftest:dev": "npx tsx src/self-test.ts",
-    "test:comprehensive": "npx tsx src/comprehensive-test.ts",
-    "publish:release": "./scripts/publish.sh",
-    "prepublishOnly": "npm run build",
-    "prepare": "npm run build"
+    "publish:release": "npm publish"
   },
   "keywords": [
     "mcp",
@@ -72,8 +64,5 @@
     "zod": "^3.23.8",
     "zod-to-json-schema": "^3.24.6"
   },
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "typescript": "^5.6.2"
-  }
+  "devDependencies": {}
 }
