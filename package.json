@@ -1,0 +1,79 @@
+{
+  "name": "oracle-mcp",
+  "version": "1.0.1",
+  "description": "A comprehensive MCP server providing deep engineering guidance with full MCP compliance: tools, resources, prompts, and secure file system access",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "oracle-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/http-server.js",
+    "dist/self-test.js",
+    "dist/resources.js",
+    "dist/roots.js",
+    "dist/prompts.js",
+    "README.md",
+    "README-CLOUD.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulelliotco/oracle-mcp.git"
+  },
+  "homepage": "https://github.com/paulelliotco/oracle-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/paulelliotco/oracle-mcp/issues"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./http-server": "./dist/http-server.js"
+  },
+  "scripts": {
+    "build": "npx tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "start:http": "node dist/http-server.js",
+    "selftest": "node dist/self-test.js",
+    "dev:stdio": "npx tsx watch src/index.ts",
+    "dev:http": "npx tsx watch src/http-server.ts",
+    "typecheck": "npx tsc -p tsconfig.json --noEmit",
+    "selftest:dev": "npx tsx src/self-test.ts",
+    "test:comprehensive": "npx tsx src/comprehensive-test.ts",
+    "publish:release": "./scripts/publish.sh",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "oracle",
+    "engineering",
+    "cli",
+    "resources",
+    "prompts",
+    "filesystem",
+    "tools",
+    "openai",
+    "guidance",
+    "architecture"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "express": "^4.19.2",
+    "express-rate-limit": "^6.11.2",
+    "openai": "^4.55.0",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "typescript": "^5.6.2"
+  }
+}
